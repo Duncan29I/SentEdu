@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <title>Reporte Semanal</title>
+</head>
+<body>
+  <h2>Reporte semanal de {{ nombre }}</h2>
+
+  {% if datos %}
+    <table border="1" cellpadding="6">
+      <tr>
+        <th>Actividad</th>
+        <th>Sentimiento</th>
+        <th>Cantidad</th>
+      </tr>
+      {% for actividad, sentimiento, cantidad in datos %}
+        <tr>
+          <td>{{ actividad }}</td>
+          <td>{{ sentimiento }}</td>
+          <td>{{ cantidad }}</td>
+        </tr>
+      {% endfor %}
+    </table>
+  {% else %}
+    <p>No hay datos registrados en los últimos 7 días.</p>
+  {% endif %}
+
+  <br><a href="/">⬅️ Volver al análisis</a> |
+  <a href="/logout">Cerrar sesión</a>
+</body>
+</html>
